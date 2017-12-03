@@ -120,8 +120,8 @@ public class Graph {
                 {
                     curl.vertex.dist = mem.dist + 1;
                     curl.vertex.visited = true;
-                    curl.vertex.next = mem;
-                    mem.prev = curl.vertex;
+                    mem.next = curl.vertex;
+                    curl.vertex.prev = mem;
                     queue.enqueue(curl.vertex);
                 }
                 curl = curl.next;
@@ -134,10 +134,17 @@ public class Graph {
         Stack s = new Stack();//integer
         // Do something here
         Vertex temp = vertexList[u_key];
-        while (temp.prev != vertexList[s_key])
+        while (true)
         {
-            s.push(temp);
-            temp = temp.prev;
+            if(temp.prev == null)
+            {
+                break;
+            }
+            else
+            {
+                s.push(temp);
+                temp = temp.prev;
+            }
         }
         s.push(vertexList[s_key]);
         return s;
@@ -146,10 +153,9 @@ public class Graph {
         BFS(s);
         Stack stack = getShortestPathList(s, u);
         // Print something here
-        while (stack!=null)
+        while (!stack.isEmpty())
         {
-            System.out.println(stack.pop().key + "->");
+            System.out.print(stack.pop().key + " ");
         }
-        System.out.println();
     }
 }
