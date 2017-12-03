@@ -53,8 +53,8 @@ public class Main {
 
         
         //graph.DFS();
-        System.out.println("");
-        graph.BFS(0);
+        System.out.println();
+        graph.printShortestPart(0,1);
 
         /*Graph graph = new Graph(32);
         for (int i=0; i<16; i++)

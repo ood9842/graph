@@ -99,50 +99,26 @@ public class Graph {
         }
         System.out.println("");
     }
-    public void BFS(int s){
-        cc = 0;
-        for (int i=0; i<cap; i++){
-            if (vertexList[i]!=null){
+    public void BFS(int s) {
+        for (int i = 0; i < cap; i++) {
+            if (vertexList[i] != null) {
                 // Do something inside here (Hint: Initialization)
                 vertexList[i].visited = false;
-                vertexList[i].ccNum = cc;
-            }
-        }
-
-        // Do something here
-        for (int i=0;i<size;i++)
-        {
-            if(vertexList[i].visited)
-            {
-                continue;
-            }
-            else
-            {
-                cc++;
-                Queue queue = new Queue(vertexList[i]);
-                queue.head.vertex.visited = true;
-                while (!queue.isEmpty())
-                {
-                    Node curl = queue.head.vertex.head;
-                    while (curl!=null){
-                        if(!curl.vertex.visited)
-                        {
-                            curl.vertex.visited = true;
-                            curl.vertex.ccNum = cc;
-                            queue.enqueue(curl.vertex);
-                        }
-                        curl = curl.next;
-                    }
-                    System.out.print(queue.dequeue().key + " ");
-                }
+                vertexList[i].dist = 0;
             }
         }
     }
     
     public Stack getShortestPathList(int s_key, int u_key){
-        Stack s = new Stack();
+        Stack s = new Stack();//integer
         // Do something here
-
+        Vertex temp = vertexList[u_key];
+        while (temp.prev != vertexList[s_key])
+        {
+            s.push(temp);
+            temp = temp.prev;
+        }
+        s.push(vertexList[s_key]);
         return s;
     }
     public void printShortestPart(int s, int u){
