@@ -118,8 +118,8 @@ public class Main {
         graph.vertexList[graph.hashMapWithQuadraticProbing("Zurich")].showList();
         graph.vertexList[graph.hashMapWithQuadraticProbing("Geneva")].showList();
         
-        //graph.printShortestPart("London", "Budapest");
-        //graph.printShortestPart("Berlin", "Dublin");
+        graph.printShortestPart("London", "Budapest");
+        graph.printShortestPart("Berlin", "Dublin");
 
     }
     

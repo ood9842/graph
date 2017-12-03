@@ -1,7 +1,7 @@
 /* HW9
  * Due: 3 December 2017
  * Problem Header Hash Code: 81dd79160310b8cddaadc4c3c27c23bc
-*/ 
+*/
 package hw9;
 
 /**
@@ -9,16 +9,16 @@ package hw9;
  * @author patiw
  */
 public class HashGraph extends Graph{
-    
+
     long p; // Big Prime
     long x; // Small number
-    
+
     public HashGraph(int cap, long p, long x){
         super(cap);
         this.p = p;
         this.x = x;
     }
-    
+
     public void addVertex(String key){
         if (size==cap){
             System.out.println("Vertex list is full. You need to rehash");
@@ -29,7 +29,7 @@ public class HashGraph extends Graph{
         vertexList[index].str = key;
         size++;
     }
-    
+
     public void addEdge(String source, String destination){
         int sourceIndex = hashMapWithQuadraticProbing(source);
         int destinationIndex = hashMapWithQuadraticProbing(destination);
@@ -50,7 +50,7 @@ public class HashGraph extends Graph{
 
         return super.getShortestPathList(F_key, T_key);
     }
-    
+
     public int hashMapWithQuadraticProbing(String s){
         int index = (int)(HashGraph.polyHash(s,p,x) % cap);
         // Check if the index leads collision, if yes, use the quadratic probing
@@ -77,7 +77,7 @@ public class HashGraph extends Graph{
         }
         return hash;
     }
-    
+
     public void printShortestPart(String s, String u){
         // Fix this
         int F_key = hashMapWithQuadraticProbing(s);///copy
