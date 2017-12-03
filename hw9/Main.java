@@ -54,7 +54,8 @@ public class Main {
         
         //graph.DFS();
         System.out.println();
-        graph.printShortestPart(0,1);
+        graph.BFS(0);
+        //graph.printShortestPart(0,1);
 
         /*Graph graph = new Graph(32);
         for (int i=0; i<16; i++)

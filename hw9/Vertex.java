@@ -64,7 +64,7 @@ public class Vertex {
         Node node = head;
         System.out.print("Vertex " + str + " connected to the following vertices: ");
         while(node!=null){
-            System.out.print(node.vertex.str + ", ");
+            System.out.print(node.vertex.str + ", dist ");
             node = node.next;
         }
         System.out.println();

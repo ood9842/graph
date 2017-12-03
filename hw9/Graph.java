@@ -107,6 +107,27 @@ public class Graph {
                 vertexList[i].dist = 0;
             }
         }
+
+        // Do something here
+        Queue queue = new Queue(vertexList[s]);
+        queue.head.vertex.visited = true;
+        while (!queue.isEmpty())
+        {
+            Node curl = queue.head.vertex.head;
+            Vertex mem = queue.head.vertex;
+            while (curl!=null){
+                if(!curl.vertex.visited)
+                {
+                    curl.vertex.dist = mem.dist + 1;
+                    curl.vertex.visited = true;
+                    curl.vertex.next = mem;
+                    mem.prev = curl.vertex;
+                    queue.enqueue(curl.vertex);
+                }
+                curl = curl.next;
+            }
+            queue.dequeue();
+        }
     }
     
     public Stack getShortestPathList(int s_key, int u_key){
