@@ -21,7 +21,7 @@ public class Main {
      */
     public static void main(String[] args) {
 
-        Graph graph = new Graph(32);
+        /*Graph graph = new Graph(32);
         for (int i=0; i<16; i++)
             graph.addVertex(i);
         graph.addEdge(0, 1);
@@ -53,8 +53,7 @@ public class Main {
 
         
         //graph.DFS();
-        System.out.println("");
-        graph.BFS(0);
+        graph.printShortestPart(0,6);*/
 
         /*Graph graph = new Graph(32);
         for (int i=0; i<16; i++)
@@ -81,8 +80,8 @@ public class Main {
 
         for (int i=0; i<16; i++)
             graph.vertexList[i].showList();
-        
-        /*
+        */
+
         long p = 101111; // Big Prime (Hash key1)
         long x = 101; // Small number (Hash key2)
         HashGraph graph = new HashGraph(32, p, x); 
@@ -121,7 +120,7 @@ public class Main {
         
         graph.printShortestPart("London", "Budapest");
         graph.printShortestPart("Berlin", "Dublin");
-        */
+
     }
     
 }
